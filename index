@@ -1,0 +1,673 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Elenco</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="43408302-fa85-4462-a6ac-74f5a145df95" class="page sans"><header><h1 class="page-title">Elenco</h1></header><div class="page-body"><p id="bd13de0d-cafa-49f9-892b-35a6260cd20b" class="">
+</p><p id="68dc9a90-147e-4ef5-b0b6-73ca6a92c135" class="">Pedro Gomes Serra Pereira</p><ol type="1" id="06487b75-72f6-4537-9af5-4fa1f7db9bb6" class="numbered-list" start="1"><li>pós-internet e posturas criticas</li></ol><p id="b4b8e7b8-3717-4a4c-9fc4-f73ba4845a5f" class="">
+</p><h1 id="489f0df0-b74d-4432-b35a-ddd47802ad69" class="">Tema - Comparação da Net Art no Web 1.0 e 2.0 | Misturar os Dois</h1><p id="e082bc07-fbe5-47a5-8a48-a8acf8cdce33" class="">
+</p><p id="190bdb94-b625-492d-bc63-ea8e90b95be2" class="">Editorial - Print | Mostrar os tópicos teóricos</p><p id="2311fafd-f75d-40fa-b5bd-36f17d27d085" class="">Complementar - Online | Mostrar os artefactos práticos</p><p id="09a46b86-963d-45ae-b2d3-18a833d76156" class="">
+</p><h2 id="dfee16c9-0b93-4115-9c74-7b5de47d9f46" class="">Tópicos - Print</h2><ul id="75b39631-2c00-4484-8d71-028412ba4dd0" class="toggle"><li><details open=""><summary><strong>Web 1.0 Utopia | Web 2.0 Dystopia</strong></summary><ul id="9804fba0-25c0-4654-8c16-e758d0d55016" class="bulleted-list"><li style="list-style-type:disc">Internet Culture or just Culture - &quot;In this context, it no longer makes sense for artists to attempt to come to terms with ‘internet culture’, because now ‘internet culture’ is increasingly just ‘culture’.&quot; [1]</li></ul><ul id="139466cb-9ac7-400f-979c-a37f3d4c2e0d" class="bulleted-list"><li style="list-style-type:disc">User Creation vs User - &quot;By 2006, the time of the ‘Net Aesthetics 2.0’ panel, coming to grips with user-generated content on a range of levels seemed much more pressing than being a content-creating user oneself.&quot; [1]</li></ul><p id="d0d4201b-3c65-42c5-8f09-ea0e7d4c2bd7" class="">
+</p></details></li></ul><ul id="57e1a07b-268e-4ef5-80c3-bdaa064d7df6" class="toggle"><li><details open=""><summary><strong>Evolution of Net Art</strong></summary><p id="4b45b92d-c49f-4949-b687-5ce39fa7c411" class=""> &quot;As we have seen, post internet art emerged at a time when net art was rehashing its relationship with the art world. Net art, which was always aware that its radical autonomy could only be temporary, and that always played the tongue in cheek role of “the last avant-garde”, was nonetheless initially &#x27;mind blown&#x27; (in the words of Arcangel) by the opportunity to play different roles (including those of the institution and gallery) and reach an audience “without any intermediary”. Yet, it soon understood that in order to make the game more interesting, the art world was not to be rejected, but used and abused.&quot;[4]</p><ul id="5e9b8602-e619-4bfb-a60c-bea14e6f2234" class="bulleted-list"><li style="list-style-type:disc">Copy-and-Paste Creations - &quot;There is a strain of net.art referred to among its practitioners and those who follow it as “pro surfer” work. Characterized by a copy-and-paste aesthetic that revolves around the appropriation of web-based content in simultaneous celebration and critique of the internet and contemporary digital visual culture, this work— heavy on animated GIFs, YouTube remixes, and an embrace of old-school “dirtstyle” web-design aesthetics—is beginning to find a place in the art world.&quot;...[2]</li></ul><p id="60a9563e-63ba-4272-a9a3-b971e4762aec" class="">&quot;...artists are practicing within a copy-and-paste culture in which images, sound files, videos, and even source code are lifted and repurposed, the work is often dismissed as derivative.&quot; [2]</p><ul id="038a85fe-3315-4c62-9c12-db3f4c6b95b5" class="bulleted-list"><li style="list-style-type:disc">Net Art in the art market - &quot;As Lonergan said to Ed Halter in a recent interview: Net art’s relationship to contemporary art as a whole and to the art market gets more confusing every day. It’s pretty fascinating to watch, though. I tried for years to figure out how to ‘print it out,’ to make something super-salable, but I could never quite figure it out, and I don’t think I ever will.&quot; [4]</li></ul><p id="3fca482d-b4a5-48c4-863a-2aaeb8d23d4d" class="">
+</p></details></li></ul><ul id="7ed0a9dd-d62f-43bb-af6d-c3398f152155" class="toggle"><li><details open=""><summary><strong>Post-Internet is forever</strong></summary><p id="2ff1b907-728b-4462-8183-231534676d2a" class="">&quot;Even the term ‘post-internet’ itself has been redefined and changed; it has come to stand less for a clear demarcation of ‘before’ and ‘after’ than to represent a continuously evolving critical dialogue.&quot;</p><ul id="296f2dda-392b-472d-885d-745edd3e5bcf" class="bulleted-list"><li style="list-style-type:disc">Art after the Internet</li></ul><ul id="d3f039ac-12a5-4608-8584-a5d79654d21d" class="bulleted-list"><li style="list-style-type:disc">Digital Folklore - &quot;Digital Folklore encompasses the customs, traditions, and elements of visual, textual, and audio culture that emerged from users’ engagement with personal computer applications during the last decade of the twentieth century and the first decade of the twenty-first century.&quot; [3]</li></ul><ul id="0bc4296b-834b-4a96-9bc9-c7c494b2ef00" class="bulleted-list"><li style="list-style-type:disc">Internet as an Art Object - &quot;The Post-Internet art object looks good in a browser just as laundry detergent looks good in a commercial. Detergent isn&#x27;t as stunning at a laundromat, and neither does Post-Internet art shine in the gallery. It&#x27;s boring to be around. It&#x27;s not really sculpture. It doesn&#x27;t activate space. It&#x27;s often frontal, designed to preen for the camera&#x27;s lens. It&#x27;s an assemblage of some sort, and there&#x27;s little excitement in the way objects are placed together, and nothing is well made except for the mass-market products in it. It&#x27;s the art of a cargo cult, made in awe at the way brands thrive in networks.&quot; [4]</li></ul><p id="04ae1045-b5ba-42ba-9544-a793df14bf35" class="">
+</p></details></li></ul><ul id="0c9aacae-ab63-4672-8228-f24008e8a636" class="toggle"><li><details open=""><summary><strong>Post-digital </strong></summary><ul id="c677ce63-0745-4cd3-92ee-f9cb4b6985b6" class="bulleted-list"><li style="list-style-type:disc">Innovation Through new Media</li></ul></details></li></ul><ul id="2dc29455-93d6-4bf4-a094-8e986526c16c" class="toggle"><li><details open=""><summary><strong>Internet as an Art Object</strong></summary><ul id="4013deb4-ba90-4cc6-8720-8ac15a532b51" class="bulleted-list"><li style="list-style-type:disc">Cultural Loop - &quot;What should be understood about this process is that it&#x27;s a loop, not a straight line. Thus, “work inside the institution” is not the end of a process that goes from autonomy to integration, but part of a continuous loop in which net celebrity serves to get into the gallery, and art world recognition serves to generate more interest online.&quot;</li></ul></details></li></ul><p id="df1f2537-9ede-4610-a506-d4b39b541fcf" class="">
+</p><p id="f2fddbf0-e4bb-430c-a20e-b837c2603e4b" class="">
+</p><h2 id="6388fe45-6770-4ee9-a87a-15dfea4efe49" class="">Projetos - Online</h2><p id="3b3999b8-b665-457c-8cd3-5fcfb88e2b98" class="">
+</p><ul id="03882e94-a81b-457a-bf98-16bec56dda37" class="toggle"><li><details open=""><summary>WEB 1.0</summary><ul id="b3531118-5e82-45c1-aff5-a861a1a0d786" class="bulleted-list"><li style="list-style-type:disc"><a href="http://www.johannes-p-osterhoff.com/agatha/makes_stupid_things.html">http://www.johannes-p-osterhoff.com/agatha/makes_stupid_things.html</a> &quot;The most notable example of this is her work Agatha Appears (1997), one section of which involves a series of pages, each featuring an identical image of a woman, which moves the user from one URL to the next, each one adding a bit more narrative information, albeit in telegraphic, abbreviated form:&quot; <p id="5ee21edf-05f5-41f1-8844-cb6eb40fec34" class="">&quot;The URLs in Agatha Appears are used as a creative tool by Lialina, while those in Summer are all modified by the artist in a standardized way, through the addition of her first name and the title of the work as a folder and a subfolder (olia/summer).&quot;</p><figure id="37c3faa6-115a-4abb-810f-ac69b9cc7b06" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035818.jpg"><img style="width:3830px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035818.jpg"/></a></figure><p id="4e101f11-b672-4520-a545-c4895ae57618" class="">
+</p></li></ul><ul id="0864b79e-7490-425a-99b9-9b79dfaf79a4" class="bulleted-list"><li style="list-style-type:disc"><a href="http://www.teleportacia.org/war/">http://www.teleportacia.org/war/</a>   &quot;In the 1990s, Olia Lialina’s work often took the form of web pages that used various interactive, visual, and textual possibilities afforded by the browser for narrative purposes. In My Boyfriend Came Back from the War (1996), Lialina used HTML frames and hyperlinks to tell a story that opens out across nested windows;&quot;  <figure id="3ff80392-6d90-4830-9856-532b7f7ca12a" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035623.jpg"><img style="width:1056px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035623.jpg"/></a></figure><figure id="1107861e-5247-46d0-97e2-4f469944b553" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035654.jpg"><img style="width:1104px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_035654.jpg"/></a></figure><figure id="73fe92b9-e4f8-4cd4-981e-9a781d428597" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_042625.jpg"><img style="width:1104px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_042625.jpg"/></a></figure><p id="eb2194f5-bbd8-4669-8f86-71b90b4a51a9" class="">
+</p><p id="02adf172-1137-490a-b9e4-3cf74bae1d6f" class="">
+</p><p id="9138d5e0-f1f2-423b-b859-5c44cfd554a2" class="">
+</p></li></ul></details></li></ul><ul id="05d4889d-4c45-4c6f-ae90-65a81ddb2775" class="toggle"><li><details open=""><summary>WEB 2.0 </summary><ul id="d3dbeebb-0274-4c28-8653-9f9d0f9601f4" class="bulleted-list"><li style="list-style-type:disc"><strong>LET&#x27;S ALL LOVE LAIN | Fauux.neocities</strong> <p id="8a9b933c-6990-4ad1-8146-8b83fdbccf66" class=""><a href="https://fauux.neocities.org/">https://fauux.neocities.org/</a> </p><p id="455fbf82-d932-4786-95bc-23c13e1f9a0c" class=""><a href="https://fauux.neocities.org/lovelain.html">https://fauux.neocities.org/lovelain.html</a></p><p id="9383fb72-e7a1-4839-9e66-2ea12297ba0a" class="">&quot;...<em>Serial Experiments Lain</em>. It’s this transhumanist sci-fi. The premise is that this girl in middle school kills herself and all of her classmates start receiving messages from her on this pseudo-internet called the ‘Wired’. It’s quite pretty avant-garde and non-linear in the way that the story is told. This anime really inspired the look and feel of Virtual Self, and it also inspired a <em>massive </em>fandom. A lot of people have made <em>Lain</em>related fansites, (like) this website, (which) was made by an artist named Fauux.&quot; </p><p id="1ca7ea2f-a087-460e-a9e6-f72f69c63ef8" class="">(Robinson, P. 2018 <a href="https://www.dazeddigital.com/music/article/39536/1/porter-robinson-virtual-world-y2k-faves-interview">https://www.dazeddigital.com/music/article/39536/1/porter-robinson-virtual-world-y2k-faves-interview</a>)</p><figure id="ade2a1ed-997c-4211-a909-adc461360656" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_043637.jpg"><img style="width:3827px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_043637.jpg"/></a></figure><figure id="ca809ccf-3114-42a0-9366-5b24c865a5e7" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_043924.jpg"><img style="width:3840px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_043924.jpg"/></a></figure><figure id="1a0182b9-51ef-4111-9008-ac619bac3f9d" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_044037.jpg"><img style="width:3780px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_044037.jpg"/></a></figure><figure id="a480aaef-32a3-47ee-bace-db0cbc49be96" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_044422.jpg"><img style="width:3827px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_044422.jpg"/></a></figure><p id="a3b1faea-a755-45ed-aa34-4e3fb2c24ab8" class="">
+</p><ul id="3b6c8ec2-28a1-4dab-9c87-d93a08c52fac" class="bulleted-list"><li style="list-style-type:circle"><strong>JODI -</strong> <a href="http://wwwwwwwww.jodi.org/"><em>wwwwwwwww.jodi.org</em></a><em> </em><p id="58d7b720-1331-4320-81d4-831f75ac5ec1" class="">&quot;...there’s something really special about using a website as an art medium to express something. It’s very different to our relationship with websites now, (where) the site isn’t the art itself, it’s usually something that’s quite neutral. You’re confined to the constraints of these websites that are used to deliver little nuggets of content, rather than being the content in and of themselves. I love the idea of web design that maximises expressiveness over functionality. A site like Jodi is just so interesting – right down to the URL, with several w’s.&quot;</p><p id="d4372447-1499-4fce-8e56-8a585345748c" class="">(Robinson, P. 2018 <a href="https://www.dazeddigital.com/music/article/39536/1/porter-robinson-virtual-world-y2k-faves-interview">https://www.dazeddigital.com/music/article/39536/1/porter-robinson-virtual-world-y2k-faves-interview</a>)</p><figure id="a758f679-052a-490f-9303-890732b1fef4" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045655.jpg"><img style="width:3830px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045655.jpg"/></a></figure><figure id="137e21fa-bef8-457c-bed3-e9d155e9f409" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045600.jpg"><img style="width:3835px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045600.jpg"/></a></figure><figure id="68f616fa-a8ad-4915-8408-ae134bbcd576" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045628.jpg"><img style="width:3752px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-09_045628.jpg"/></a></figure><p id="6dac38b3-f1ed-4cdf-8621-00ce0fae1e37" class="">
+</p></li></ul></li></ul><ul id="93b724a9-24ba-4ecd-89bb-e550935b02dd" class="bulleted-list"><li style="list-style-type:disc"><a href="http://asdfg.jodi.org/-------------------------------/-------------------------------/-------------------------------/-----------------------332xc675/rttysxx.html">http://asdfg.jodi.org/-------------------------------/-------------------------------/-------------------------------/-----------------------332xc675/rttysxx.html</a> - &quot;An experimental website, using randomly generated ASCII art and Javascript. Jodi uses the browser to dissolve the configuration of ASCII elements with a figurative contour on the level of the source code into an irritating sequence of signs: lines, dashes, points and cyphers in repeating sequences and variations.&quot; —Thomas Dehrer «History of Computer Art»&quot;<figure id="d5f5fca8-d4b0-4d94-bde7-5784c57427e0" class="image"><a href="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-14_155225.jpg"><img style="width:3825px" src="Elenco%2037c3faa6115a4abb810fac69b9cc7b06/Captura_de_ecr_2021-12-14_155225.jpg"/></a></figure></li></ul></details></li></ul><p id="176b10f0-634b-4fb1-a488-ee2f53749e6f" class="">
+</p><h3 id="3ee714b3-07d7-4af1-8fbb-230255ba167a" class="">Referências </h3><p id="0c5eaa18-997c-45f6-9f4e-3b16cbd4f5f1" class="">[1] <strong>Post-Internet: What it Is and What It Was - Michael Connor </strong></p><p id="3cc93472-1a04-4b47-b921-8f4caaa1275b" class="">[2] Mass Effect: Art and the Internet in the Twenty-First Century - Lauren Cornell and Ed Halter -<strong> LOST NOT FOUND: THE CIRCULATION OF IMAGES IN DIGITAL VISUAL CULTURE - Marisa Olsen - 159</strong></p><p id="a29445ab-b69b-4b08-afb6-af5518bbe426" class="">[3] Mass Effect: Art and the Internet in the Twenty-First Century - Lauren Cornell and Ed Halter -<strong> DO YOU BELIEVE IN USERS? / TURNING COMPLETE USER - Olia Liliana and Dragan Espenchied - 1</strong></p><p id="0bb0cebc-0d75-4345-86ee-ee3d3254c681" class="">[4] <strong>Situating Post Internet - Dominico Quaranta</strong></p></div></article></body></html>
